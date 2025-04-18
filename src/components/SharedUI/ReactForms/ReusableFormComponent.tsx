@@ -1,8 +1,8 @@
 function ReusableFormComponent() {
   return (
 
-    <h1>ReusabelCompoanne</h1>
+    <h2>ReusabelCompoanne</h2>
   )
 }
 
-export default ReusableFormComponent
+export default ReusableFormComponent;
