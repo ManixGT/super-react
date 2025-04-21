@@ -1,0 +1,181 @@
+/* AdminDashboard.module.css */
+/* Mobile first design starting at 320px width */
+
+/* Main container */
+.container {
+    padding: 16px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Welcome header section */
+.welcomeHeader {
+    margin-bottom: 16px;
+}
+
+.welcomeTitle {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+
+.welcomeSubtitle {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Section divider */
+.divider {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 20px 0;
+}
+
+/* Section titles */
+.sectionTitle {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 16px 0;
+}
+
+/* Insights grid */
+.insightsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+/* Insight cards */
+.insightCard {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 12px;
+    overflow: hidden;
+}
+
+.insightContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.insightTitle {
+    font-size: 12px;
+    color: #6c757d;
+    margin: 0 0 4px 0;
+}
+
+.insightValue {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.iconContainer {
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Shortcuts grid */
+.shortcutsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+/* Shortcut cards */
+.shortcutCard {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    height: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.shortcutCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.shortcutContent {
+    padding: 16px;
+}
+
+.shortcutIcon {
+    display: inline-flex;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.shortcutTitle {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+}
+
+.shortcutDescription {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Responsive styles for larger screens */
+@media screen and (min-width: 375px) {
+    .welcomeTitle {
+        font-size: 22px;
+    }
+
+    .insightValue {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    .insightsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shortcutsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        padding: 24px;
+    }
+
+    .welcomeTitle {
+        font-size: 24px;
+    }
+
+    .welcomeSubtitle {
+        font-size: 16px;
+    }
+
+    .sectionTitle {
+        font-size: 20px;
+    }
+
+    .insightsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .shortcutsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

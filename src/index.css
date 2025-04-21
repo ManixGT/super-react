@@ -1,14 +1,33 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
 }
 
 body {
   font-family: 'Segoe UI', sans-serif;
   position: relative;
   background-color: #f9f9f9;
+}
+
+.splash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* Full viewport height */
+  background-color: #f9f9f9;
+  /* Optional background color */
+}
+
+.splash-logo {
+  width: 150px;
+  /* Adjust the size of the logo */
+  height: auto;
+  object-fit: contain;
 }
