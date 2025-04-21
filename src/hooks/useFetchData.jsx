@@ -8,30 +8,24 @@ export const useFetchData = (url, options = {}) => {
     const [trigger, setTrigger] = useState(0);
 
     const fetchData = async (requestUrl = url, requestOptions = options) => {
-        // Reset states
         setLoading(true);
         setError(null);
-
-        // Validate inputs
         if (!requestUrl) {
             setLoading(false);
             return;
         }
 
         try {
-            // Configure axios request
             const config = {
                 url: requestUrl,
                 method: requestOptions.method || 'GET',
                 headers: requestOptions.headers || {},
             };
 
-            // Add data if needed
             if (requestOptions.body && config.method !== 'GET') {
                 config.data = requestOptions.body;
             }
 
-            // Make the request
             const response = await axios(config);
             setData(response.data);
         } catch (error) {
@@ -44,14 +38,12 @@ export const useFetchData = (url, options = {}) => {
         }
     };
 
-    // Execute the fetch when url or options change, or when manually triggered
     useEffect(() => {
         if (url) {
             fetchData();
         }
     }, [url, options, trigger]);
 
-    // Return states and a way to manually trigger fetches
     return {
         data,
         error,

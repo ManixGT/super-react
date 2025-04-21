@@ -1,9 +1,7 @@
-// UserDashboard.jsx
 import React, { lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './UserDashboard.module.css';
 
-// Import icons
 import {
     LiveTv,
     Favorite,
@@ -14,7 +12,6 @@ import {
     Settings
 } from '@mui/icons-material';
 
-// Mock user data
 const userData = {
     name: "Ananya",
     recentEvents: 3,
@@ -22,11 +19,9 @@ const userData = {
     guruQuote: "The mind is everything. What you think you become.",
     guruName: "Pandit Kumar Viswas Ji",
     guruDescription: "A renowned spiritual leader with over 30 years of experience in Vedic philosophy, meditation, and holistic living. Pandit Kumar Viswas Ji has guided thousands of seekers on their spiritual journey.",
-    bannerImage: "/path/to/banner-image.jpg", // This would be replaced with your actual image path
+    bannerImage: "/path/to/banner-image.jpg",
 };
 
-
-// Shortcut buttons configuration
 const shortcutButtons = [
     {
         title: "Live Events",
@@ -53,27 +48,19 @@ const shortcutButtons = [
         color: "#43a047"
     },
     {
-        title: "Notifications",
+        title: "Enquiry",
         icon: <Notifications />,
         path: "/notifications",
         color: "#fb8c00"
     },
     {
-        title: "History",
+        title: "Media",
         icon: <History />,
         path: "/history",
         color: "#757575"
     },
-    {
-        title: "Settings",
-        icon: <Settings />,
-        path: "/settings",
-        color: "#546e7a"
-    }
 ];
 
-
-// Feature Card Component
 const FeatureCard = ({ title, icon, path, color }) => {
     const navigate = useNavigate();
 
@@ -93,11 +80,9 @@ const FeatureCard = ({ title, icon, path, color }) => {
     );
 };
 
-// Main Dashboard Component
 const UserDashboard = () => {
     return (
         <div className={styles.container}>
-            {/* Welcome Header */}
             <div className={styles.welcomeHeader}>
                 <h1 className={styles.welcomeTitle}>
                     Namaste, {userData.name} 🙏
@@ -107,12 +92,10 @@ const UserDashboard = () => {
                 </p>
             </div>
 
-            {/* Banner Image */}
             <div className={styles.bannerContainer}>
                 <img src="/assets/kv-banner.jpg" alt="img" className={styles.bannerImage} />
             </div>
 
-            {/* Guru Quote Section */}
             <div className={styles.quoteSection}>
                 <div className={styles.quoteContent}>
                     <p className={styles.quote}>"{userData.guruQuote}"</p>
@@ -120,15 +103,13 @@ const UserDashboard = () => {
                 </div>
             </div>
 
-            {/* Guru Description */}
             <div className={styles.guruSection}>
-                <h2 className={styles.sectionTitle}>About our Guru</h2>
+                <h2 className={styles.sectionTitle}>Description</h2>
                 <div className={styles.guruDescription}>
                     <p>{userData.guruDescription}</p>
                 </div>
             </div>
 
-            {/* Quick Actions/Features */}
             <h2 className={styles.sectionTitle}>Quick Access</h2>
             <div className={styles.featuresGrid}>
                 {shortcutButtons.map((button, index) => (
@@ -142,7 +123,6 @@ const UserDashboard = () => {
                 ))}
             </div>
 
-            {/* Event Summary */}
             <div className={styles.eventSummary}>
                 <div className={styles.eventCard}>
                     <h3 className={styles.eventNumber}>{userData.upcomingEvents}</h3>

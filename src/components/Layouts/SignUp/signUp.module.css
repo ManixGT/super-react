@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f5f5f5;
+    margin: 20px;
 }
 
 .card {
@@ -18,7 +18,7 @@
 .heading {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: #ff0000;
 }
 
 .loginLink {
@@ -29,7 +29,7 @@
 }
 
 .loginLink a {
-    color: #007bff;
+    color: #ff0000;
     text-decoration: none;
     font-weight: 500;
 }

@@ -4,15 +4,14 @@ import { ReusableFormComponent } from "../../SharedUI/ReactForms";
 import { Box, Typography, Button, Paper } from "@mui/material";
 import styles from "./VerifyOtp.module.css";
 
-function VerifyOtp() {
+function VerifyOtp(data) {
     const [timer, setTimer] = useState(60);
     const [verificationComplete, setVerificationComplete] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
+    const contactInfo = location.state.medium;
 
-    // Extract phone/email from location state or use default
-    const contactInfo = location.state?.contactInfo || "your contact";
-    const contactType = location.state?.contactType || "email";
+    console.log(location, 'location');
 
     useEffect(() => {
         let interval;
@@ -25,12 +24,8 @@ function VerifyOtp() {
     }, [timer]);
 
     const handleVerifyOtp = (data) => {
-        console.log("Verifying OTP:", data.otp, "for", contactType, ":", contactInfo);
-        // Here you would call your API to verify the OTP
-        // For demo purposes, we'll simulate success
+        // API to verify the OTP
         setVerificationComplete(true);
-
-        // Redirect after successful verification (after a short delay)
         setTimeout(() => {
             navigate('/reset-password');
         }, 2000);
@@ -40,7 +35,6 @@ function VerifyOtp() {
         if (timer === 0) {
             console.log("Resending OTP to:", contactInfo);
             setTimer(60);
-            // Here you would call your API to resend the OTP
         }
     };
 
@@ -88,7 +82,7 @@ function VerifyOtp() {
         <Box className={styles.container}>
             <Paper elevation={3} className={styles.card}>
                 <Typography variant="h5" className={styles.heading}>
-                    Verify Your {contactType === "phone" ? "Phone" : "Email"}
+                    Verify By {contactInfo === "number" ? "Phone" : "Email"}
                 </Typography>
 
                 <Typography variant="body2" className={styles.infoText}>
@@ -106,6 +100,7 @@ function VerifyOtp() {
                         variant="text"
                         onClick={handleResendOtp}
                         disabled={timer > 0}
+                        style={{ color: "black", border: "1px solid red" }}
                         className={timer > 0 ? styles.disabled : ""}
                     >
                         Resend Code {timer > 0 && `(${timer}s)`}
@@ -113,8 +108,9 @@ function VerifyOtp() {
                 </Box>
 
                 <Box className={styles.linkContainer}>
+                    Back to? {" "}
                     <Link to="/signin" className={styles.link}>
-                        Back to Sign In
+                        Sign In
                     </Link>
                 </Box>
             </Paper>

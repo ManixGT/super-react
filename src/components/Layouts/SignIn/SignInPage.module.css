@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f4f4f4;
+    margin: 20px;
 }
 
 .card {
@@ -20,17 +20,18 @@
     margin-bottom: 24px;
     font-size: 28px;
     font-weight: 600;
+    color: #EE4B2B;
 }
 
 .forgotPassword {
     text-align: right;
-    margin-top: -10px;
-    margin-bottom: 16px;
+    margin-top: 0px;
+    margin-bottom: 15px;
 }
 
 .forgotPassword a {
     font-size: 14px;
-    color: #1976d2;
+    color: #EE4B2B;
     text-decoration: none;
 }
 
@@ -73,7 +74,7 @@
 .otpButton {
     width: 100%;
     padding: 10px 0;
-    background-color: #4caf50;
+    background-color: #EE4B2B;
     color: white;
     font-weight: 600;
     border: none;
@@ -93,7 +94,7 @@
 }
 
 .link {
-    color: #1976d2;
+    color: #EE4B2B;
     text-decoration: none;
 }
 

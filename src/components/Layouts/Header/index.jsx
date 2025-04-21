@@ -28,7 +28,11 @@ const Header = () => {
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
         <div className={styles.logo}>
-          <img src={Logo} alt="logo" size={20} color="#61DBFB" />
+          <img src={Logo} alt="logo" size={10} style={{
+            width: '50px',
+            height: '50px',
+            marginBottom: '0px',
+          }} color="#61DBFB" />
         </div>
         <div className={styles.headerIcons}>
           <motion.button

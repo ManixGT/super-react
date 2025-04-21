@@ -5,7 +5,6 @@ import axios from 'axios';
 import { CircularProgress } from '@mui/material';
 import toast, { Toaster } from 'react-hot-toast';
 
-// Get API URL from environment variables or use a default
 const API_URL = "http://localhost:4000/api/v1";
 
 const fields = [
@@ -59,14 +58,6 @@ const fields = [
                 value === formValues.password || 'Passwords do not match',
         },
     },
-    {
-        name: 'agreeTerms',
-        label: 'I agree to the Terms of Service and Privacy Policy',
-        type: 'checkbox',
-        validation: {
-            required: 'You must agree to the terms to continue',
-        },
-    },
 ];
 
 const SignUpPage = () => {
@@ -75,7 +66,6 @@ const SignUpPage = () => {
     const handleSubmit = async (formData) => {
         setLoading(true);
 
-        // Show loading toast
         const loadingToastId = toast.loading('Creating your account...');
 
         try {
@@ -88,18 +78,15 @@ const SignUpPage = () => {
                 }
             });
 
-            // Update loading toast to success
             toast.success(`Sign-up successful! Welcome, ${formData.name}!`, {
                 id: loadingToastId,
             });
 
-            // Redirect to login or dashboard after successful signup
             setTimeout(() => {
                 window.location.href = '/signin';
             }, 2000);
 
         } catch (err) {
-            // Update loading toast to error
             const errorMessage = err.response?.data?.message || err.message || "Sign-up failed. Please try again.";
             toast.error(errorMessage, {
                 id: loadingToastId,
@@ -111,7 +98,6 @@ const SignUpPage = () => {
 
     return (
         <div className={styles.container}>
-            {/* Toast container */}
             <Toaster
                 position="top-center"
                 toastOptions={{

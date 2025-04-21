@@ -18,7 +18,7 @@ const eventData = [
         location: "Rishikesh Ashram",
         date: "May 12-14, 2025",
         live: true,
-        image: "/path/to/retreat.jpg"
+        image: "/assets/kv-banner.jpg"
     },
     {
         id: 2,
@@ -26,7 +26,7 @@ const eventData = [
         description: "Explore the ancient wisdom of Vedic philosophy and its practical applications in modern life.",
         location: "Delhi Cultural Center",
         date: "April 28, 2025",
-        image: "/path/to/workshop.jpg"
+        image: "/assets/kv-banner.jpg"
     },
     {
         id: 3,
@@ -34,7 +34,7 @@ const eventData = [
         description: "Weekly gathering to study and discuss the profound teachings of the Bhagavad Gita.",
         location: "Virtual Event",
         date: "Every Sunday, 10 AM",
-        image: "/path/to/bhagavad.jpg"
+        image: "/assets/kv-banner.jpg"
     },
     {
         id: 4,
@@ -42,7 +42,7 @@ const eventData = [
         description: "Experience the powerful healing vibrations of traditional instruments and sacred chants.",
         location: "Harmony Center, Mumbai",
         date: "May 5, 2025",
-        image: "/path/to/sound-bath.jpg"
+        image: "/assets/kv-banner.jpg"
     },
     {
         id: 5,
@@ -50,7 +50,7 @@ const eventData = [
         description: "A series of talks on spiritual growth, mindfulness, and conscious living.",
         location: "Bangalore Spiritual Foundation",
         date: "May 18-20, 2025",
-        image: "/path/to/discourse.jpg"
+        image: "/assets/kv-banner.jpg"
     }
 ];
 
@@ -82,19 +82,12 @@ const EventListingPage = () => {
 
     const EventCard = ({ event }) => (
         <div className={styles.eventCard}>
-            <div
-                className={styles.eventImage}
-                style={{ backgroundImage: `url(${event.image})` }}
-            >
-                <div className={styles.eventImagePlaceholder}>
-                    Event Image
-                </div>
-            </div>
+            <img src={event.image} alt={event.title} className={styles.eventImage} />
             <div className={styles.eventContent}>
                 <h3 className={styles.eventTitle}>
                     {event.title}
                     {event.live && (
-                        <span className={styles.liveTag}>     • Live Now</span>
+                        <span className={styles.liveTag}> • Live Now</span>
                     )}
                 </h3>
                 <p className={styles.eventDescription}>{event.description}</p>

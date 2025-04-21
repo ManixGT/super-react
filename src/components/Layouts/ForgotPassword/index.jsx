@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ReusableFormComponent } from '../../SharedUI/ReactForms';
 import styles from './ForgotPass.module.css';
 
 function ForgotPassword() {
-    const [otpSent, setOtpSent] = useState(false);
     const [medium, setMedium] = useState(null); // 'email' or 'mobile'
-
+    const navigate = useNavigate();
     const fields = [
         {
             name: 'contact',
@@ -28,43 +27,31 @@ function ForgotPassword() {
     ];
 
     const handleSubmit = (data) => {
+        console.log(data, 'data101');
         const value = data.contact;
         const isEmail = /^\S+@\S+$/i.test(value);
         const isMobile = /^[6-9]\d{9}$/.test(value);
 
+        let mediumType = null;
+
         if (isEmail) {
             console.log('Send OTP to email:', value);
-            setMedium('email');
+            mediumType = 'email';
         } else if (isMobile) {
             console.log('Send OTP to mobile:', value);
-            setMedium('mobile');
+            mediumType = 'number';
         }
 
-        setOtpSent(true);
+        // Navigate to the verify-otp page with the correct medium
+        navigate('/verify-otp', { state: { contact: value, medium: mediumType } });
     };
-
-    if (otpSent) {
-        return (
-            <div className={styles.container}>
-                <div className={styles.card}>
-                    <h2 className={styles.heading}>OTP Sent</h2>
-                    <p className={styles.message}>
-                        We've sent an OTP to your {medium === 'email' ? 'email address' : 'mobile number'}.
-                    </p>
-                    <Link to="/verify-otp" className={styles.link}>
-                        Verify OTP
-                    </Link>
-                </div>
-            </div>
-        );
-    }
 
     return (
         <div className={styles.container}>
             <div className={styles.card}>
                 <h2 className={styles.heading}>Forgot Password</h2>
                 <p className={styles.subheading}>
-                    Enter your email or mobile number. We'll send an OTP to verify your identity.
+                    Enter your email or mobile number. We'll send an Verification Code to verify your identity.
                 </p>
                 <ReusableFormComponent
                     fields={fields}
@@ -72,8 +59,9 @@ function ForgotPassword() {
                     submitButtonText="Send OTP"
                 />
                 <div className={styles.loginLinkContainer}>
+                    Remember your password?{' '}
                     <Link to="/signin" className={styles.link}>
-                        Remember your password? Sign In
+                        Sign In
                     </Link>
                 </div>
             </div>
