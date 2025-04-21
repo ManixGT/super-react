@@ -24,7 +24,7 @@ const eventData = {
     host: "Pandit Kumar Viswas Ji",
     totalGuests: 42,
     isLive: true,
-    bannerImage: "/path/to/retreat-banner.jpg",
+    bannerImage: "/assets/kv-banner.jpg",
     galleryImages: [
         "/path/to/gallery1.jpg",
         "/path/to/gallery2.jpg",
@@ -36,6 +36,7 @@ const eventData = {
 const EventDetailsPage = ({ isAdmin = true }) => {
     const navigate = useNavigate();
     const [showGuestList, setShowGuestList] = useState(false);
+    const [handler, setHandler] = useState('admin');
 
     const guestList = [
         { id: 1, name: "Rahul Singh", email: "rahul@example.com", ticketType: "Premium" },
@@ -103,15 +104,10 @@ const EventDetailsPage = ({ isAdmin = true }) => {
                 </button>
             </div>
 
-            <div
+            <img
                 className={styles.bannerImage}
                 style={{ backgroundImage: `url(${eventData.bannerImage})` }}
-            >
-                {/* Placeholder for when actual image is not available */}
-                <div className={styles.bannerPlaceholder}>
-                    Event Banner
-                </div>
-            </div>
+            />
 
             <div className={styles.eventContent}>
                 <h1 className={styles.eventTitle}>{eventData.title}</h1>
@@ -177,7 +173,7 @@ const EventDetailsPage = ({ isAdmin = true }) => {
                                 className={styles.guestListButton}
                                 onClick={() => setShowGuestList(true)}
                             >
-                                Guest List
+                                {handler === 'admin' ? 'Guest List' : 'Book Now'}
                             </button>
                         </div>
                     </div>

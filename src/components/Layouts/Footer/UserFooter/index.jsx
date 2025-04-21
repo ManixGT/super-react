@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiHome, FiSearch, FiPlusCircle, FiHeart, FiUser } from "react-icons/fi";
-import styles from './Footer.module.css';
+import styles from './userFooter.module.css';
 
-const Footer = () => {
+const UserFooter = () => {
   const [activeTab, setActiveTab] = useState("Home");
 
   const icons = [
     { icon: <FiHome size={22} />, key: "Home" },
-    { icon: <FiSearch size={22} />, key: "Search" },
-    { icon: <FiPlusCircle size={24} />, key: "Add" },
-    { icon: <FiHeart size={22} />, key: "Likes" },
+    { icon: <FiSearch size={22} />, key: "Event" },
+    { icon: <FiPlusCircle size={24} />, key: "Gallery" },
+    { icon: <FiHeart size={22} />, key: "Bookings" },
     { icon: <FiUser size={22} />, key: "Profile" },
   ];
 
@@ -57,4 +57,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default UserFooter;

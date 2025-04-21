@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { MuiOtpInput } from 'mui-one-time-password-input';
 import {
@@ -16,9 +16,9 @@ import {
 } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { red } from '@mui/material/colors';
 
-// Text Input Component
-const TextInput = ({ field, register, error, showPassword, togglePassword }) => (
+const TextInput = React.memo(({ field, register, error, showPassword, togglePassword }) => (
     <TextField
         fullWidth
         label={field.label}
@@ -44,10 +44,10 @@ const TextInput = ({ field, register, error, showPassword, togglePassword }) => 
         multiline={field.type === 'textarea'}
         rows={field.type === 'textarea' ? (field.rows || 4) : undefined}
     />
-);
+));
 
-// Select Input Component
-const SelectInput = ({ field, register, error }) => (
+
+const SelectInput = React.memo(({ field, register, error }) => (
     <FormControl fullWidth error={!!error} sx={{ mb: 2 }}>
         <InputLabel>{field.label}</InputLabel>
         <Select
@@ -63,7 +63,7 @@ const SelectInput = ({ field, register, error }) => (
         </Select>
         {error && <FormHelperText>{error.message}</FormHelperText>}
     </FormControl>
-);
+));
 
 export const ReusableFormComponent = ({
     fields = [],
@@ -79,11 +79,11 @@ export const ReusableFormComponent = ({
     } = useForm();
 
     const [showPassword, setShowPassword] = useState(false);
-    const togglePassword = () => setShowPassword(prev => !prev);
+    const togglePassword = useCallback(() => setShowPassword(prev => !prev));
 
     const renderField = (field) => {
         const error = errors[field.name];
-        console.log(field, "field")
+        console.log(field, "field");
 
         switch (field.type) {
             case 'select':
@@ -148,10 +148,19 @@ export const ReusableFormComponent = ({
                 </div>
             ))}
             <Button
+
                 type="submit"
                 variant="contained"
                 fullWidth
-                sx={{ mt: 1, py: 1.5 }}
+                sx={{
+                    mt: 1,
+                    py: 1.5,
+                    color: '#EE4B2B',
+                    borderColor: '#EE4B2B',
+                    backgroundColor: '#fff',
+                    border: '2px solid',
+                    borderColor: '#EE4B2B',
+                }}
                 disabled={disabled}
             >
                 {submitButtonText}

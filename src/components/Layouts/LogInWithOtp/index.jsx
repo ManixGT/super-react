@@ -73,7 +73,7 @@ function LoginWithOtp() {
     return (
         <div className={styles.container}>
             <div className={styles.card}>
-                <h2 className={styles.heading}>OTP Login</h2>
+                <h2 className={styles.heading}>Verification Code Login</h2>
 
                 {!showOtpField ? (
                     <>
@@ -107,8 +107,9 @@ function LoginWithOtp() {
                 )}
 
                 <div className={styles.linkContainer}>
+                    Back to ?{" "}
                     <Link to="/signin" className={styles.link}>
-                        Back to Sign In
+                        Sign In
                     </Link>
                 </div>
             </div>

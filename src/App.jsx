@@ -1,62 +1,94 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import Footer from "./components/Layouts/Footer";
-import Header from "./components/Layouts/Header";
-import SignInPage from './components/Layouts/SignIn';
-import SignUpPage from './components/Layouts/SignUp';
-import ForgotPassword from './components/Layouts/ForgotPassword';
-import LoginWithOtp from './components/Layouts/LogInWithOtp';
-import ResetPassword from './components/Layouts/ResetPassword';
-import VerifyOtp from './components/Layouts/VerifyOtp';
-import logo from '/assets/kv-logo.png'; // Import the logo image
-import AdminDashboard from './components/Layouts/AdminDashboard';
-import UserDashboard from './components/Layouts/UserDashboard';
-import EventDetailsPage from './components/Layouts/EventDetailsPage';
-import EventListingPage from './components/Layouts/EventListingPage';
+import { Suspense, useEffect, useState, lazy } from 'react';
+import AuthLayout from './layouts/AuthLayout';
+import AppLayout from './layouts/AppLayout';
+import logo from '/assets/kv-logo.png';
+import EventMemberList from './components/Layouts/EventMemberList';
+
+// Lazy loaded components
+const SignInPage = lazy(() => import('./components/Layouts/SignIn'));
+const SignUpPage = lazy(() => import('./components/Layouts/SignUp'));
+const ForgotPassword = lazy(() => import('./components/Layouts/ForgotPassword'));
+const LoginWithOtp = lazy(() => import('./components/Layouts/LogInWithOtp'));
+const ResetPassword = lazy(() => import('./components/Layouts/ResetPassword'));
+const VerifyOtp = lazy(() => import('./components/Layouts/VerifyOtp'));
+const AdminDashboard = lazy(() => import('./components/Layouts/AdminDashboard'));
+const UserDashboard = lazy(() => import('./components/Layouts/UserDashboard'));
+const EventDetailsPage = lazy(() => import('./components/Layouts/EventDetailsPage'));
+const EventListingPage = lazy(() => import('./components/Layouts/EventListingPage'));
 
 function App() {
-  const [showSplash, setShowSplash] = useState(true); // State to control splash screen visibility
+  const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowSplash(false), 1000); // Hide splash screen after 2 seconds
-    return () => clearTimeout(timer); // Cleanup the timer
+    const timer = setTimeout(() => setShowSplash(false), 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   if (showSplash) {
-    return <SplashScreen />; // Render splash screen if `showSplash` is true
+    return <SplashScreen />;
   }
 
   return (
-    <>
-      <BrowserRouter>
-        <Header />
+    <BrowserRouter>
+      <Suspense fallback={<SplashScreen />}>
         <Routes>
-          <Route path="/" element={<SignInPage />} />
-          <Route path="/signIn" element={<SignInPage />} />
-          <Route path="/signUp" element={<SignUpPage />} />
-          <Route path="/login-otp" element={<LoginWithOtp />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/verify-Otp" element={<VerifyOtp />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path='/admin-dashboard' element={<AdminDashboard />} />
-          <Route path='/user-dashboard' element={<UserDashboard />} />
-          <Route path='/event-details' element={<EventDetailsPage />} />
-          <Route path='/event-listing' element={<EventListingPage />} />
+          {/* Auth Routes */}
+          <Route element={<AuthLayout />}>
+            <Route path="/" element={<SignInPage />} />
+            <Route path="/signIn" element={<SignInPage />} />
+            <Route path="/signUp" element={<SignUpPage />} />
+            <Route path="/login-otp" element={<LoginWithOtp />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/verify-Otp" element={<VerifyOtp />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+          </Route>
 
-          {/* Uncomment or add additional routes as needed */}
-          {/* <Route index element={<Home />} /> */}
-          {/* <Route path="*" element={<NoPage />} /> */}
+          {/* App Routes */}
+          <Route element={<AppLayout />}>
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+            <Route path="/user-dashboard" element={<UserDashboard />} />
+            <Route path="/event-details" element={<EventDetailsPage />} />
+            <Route path="/event-listing" element={<EventListingPage />} />
+            <Route path="/eventMember-list" element={<EventMemberList />} />
+          </Route>
         </Routes>
-        <Footer />
-      </BrowserRouter>
-    </>
+      </Suspense>
+    </BrowserRouter>
   );
 }
 
 function SplashScreen() {
   return (
-    <div className="splash">
-      <img src={logo} alt="App Logo" className="splash-logo" /> {/* Centered logo */}
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        backgroundColor: '#f5f5f5',
+        textAlign: 'center',
+      }}
+    >
+      <img
+        src={logo}
+        alt="App Logo"
+        style={{
+          width: '50px',
+          height: '50px',
+          marginBottom: '10px',
+        }}
+      />
+      <h2
+        style={{
+          fontSize: '18px',
+          color: '#333',
+          margin: '0',
+        }}
+      >
+        Kumar Viswas
+      </h2>
     </div>
   );
 }

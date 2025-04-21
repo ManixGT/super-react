@@ -37,6 +37,20 @@ const shortcutLinks = [
         color: "#2196f3"
     },
     {
+        title: "Donations",
+        icon: <Favorite />,
+        description: "View and manage donations",
+        path: "/admin/donations",
+        color: "#f44336"
+    },
+    {
+        title: "Appointments",
+        icon: <EventNote />,
+        description: "All your Appointments",
+        path: "/admin/events",
+        color: "#4caf50"
+    },
+    {
         title: "Gallery",
         icon: <Collections />,
         description: "Manage event photos and media",
@@ -50,13 +64,7 @@ const shortcutLinks = [
         path: "/admin/payments",
         color: "#9c27b0"
     },
-    {
-        title: "Donations",
-        icon: <Favorite />,
-        description: "View and manage donations",
-        path: "/admin/donations",
-        color: "#f44336"
-    }
+
 ];
 
 const InsightCard = ({ title, value, icon, color }) => (

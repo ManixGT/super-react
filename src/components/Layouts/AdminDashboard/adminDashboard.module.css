@@ -1,7 +1,3 @@
-/* AdminDashboard.module.css */
-/* Mobile first design starting at 320px width */
-
-/* Main container */
 .container {
     padding: 16px;
     max-width: 100%;
@@ -43,8 +39,10 @@
 /* Insights grid */
 .insightsGrid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 boxes per row */
     gap: 12px;
+    /* Space between the boxes */
 }
 
 /* Insight cards */
@@ -85,8 +83,10 @@
 /* Shortcuts grid */
 .shortcutsGrid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 boxes per row */
     gap: 12px;
+    /* Space between the boxes */
 }
 
 /* Shortcut cards */
@@ -172,10 +172,12 @@
     }
 
     .insightsGrid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        /* Keep 2 boxes per row */
     }
 
     .shortcutsGrid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        /* Keep 2 boxes per row */
     }
 }
