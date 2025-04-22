@@ -159,7 +159,6 @@ export const ReusableFormComponent = ({
                     borderColor: '#EE4B2B',
                     backgroundColor: '#fff',
                     border: '2px solid',
-                    borderColor: '#EE4B2B',
                 }}
                 disabled={disabled}
             >

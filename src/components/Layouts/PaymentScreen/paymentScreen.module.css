@@ -1,0 +1,159 @@
+/* PaymentScreen.module.css */
+.container {
+    max-width: 350px;
+    margin: 100px auto;
+    padding: 16px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    text-align: center;
+    color: red;
+}
+
+.orderSummary {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.orderSummary h3 {
+    font-size: 16px;
+    margin: 0 0 12px 0;
+    color: #333;
+}
+
+.eventDetails {
+    margin-bottom: 16px;
+}
+
+.eventDetails h4 {
+    font-size: 15px;
+    margin: 0 0 8px 0;
+}
+
+.eventDetails p {
+    font-size: 14px;
+    margin: 4px 0;
+    color: #666;
+}
+
+.priceBreakdown {
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+}
+
+.priceRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.divider {
+    border-top: 1px dashed #ddd;
+    margin: 8px 0;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 16px;
+    color: red;
+}
+
+.paymentSection {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.paymentMethods h3 {
+    font-size: 16px;
+    margin: 0 0 12px 0;
+}
+
+.paymentInfo {
+    font-size: 13px;
+    margin-bottom: 16px;
+    color: #666;
+}
+
+.paymentLogos {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.paymentLogo {
+    width: 60px;
+    height: 36px;
+    background-color: #f8f8f8;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #666;
+}
+
+.paymentButton {
+    width: 100%;
+    background-color: #ffffff;
+    color: red;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid red;
+    margin: 16px 0;
+}
+
+.paymentButton:disabled {
+    background-color: #a0c0e8;
+    cursor: not-allowed;
+}
+
+.secureNote {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    margin: 0;
+}
+
+.lockIcon {
+    font-size: 12px;
+    margin-right: 4px;
+}
+
+/* Responsive adjustments for very small screens */
+@media (max-width: 320px) {
+    .container {
+        padding: 8px;
+    }
+
+    .orderSummary,
+    .paymentSection {
+        padding: 12px;
+    }
+
+    .paymentLogos {
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .paymentLogo {
+        width: 50px;
+        height: 32px;
+    }
+}

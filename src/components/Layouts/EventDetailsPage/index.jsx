@@ -36,7 +36,7 @@ const eventData = {
 const EventDetailsPage = ({ isAdmin = true }) => {
     const navigate = useNavigate();
     const [showGuestList, setShowGuestList] = useState(false);
-    const [handler, setHandler] = useState('admin');
+    const [handler, setHandler] = useState('user');
 
     const guestList = [
         { id: 1, name: "Rahul Singh", email: "rahul@example.com", ticketType: "Premium" },
@@ -169,12 +169,21 @@ const EventDetailsPage = ({ isAdmin = true }) => {
                                     <p className={styles.guestsCount}>{eventData.totalGuests}</p>
                                 </div>
                             </div>
-                            <button
-                                className={styles.guestListButton}
-                                onClick={() => setShowGuestList(true)}
-                            >
-                                {handler === 'admin' ? 'Guest List' : 'Book Now'}
-                            </button>
+                            {handler === 'admin' ?
+                                <button
+                                    className={styles.guestListButton}
+                                    onClick={() => navigate('/eventMember-list')}
+                                >
+                                    Guest List
+                                </button>
+                                :
+                                <button
+                                    className={styles.guestListButton}
+                                    onClick={() => navigate('/book-event')}
+                                >
+                                    Book a Event
+                                </button>
+                            }
                         </div>
                     </div>
                 )}

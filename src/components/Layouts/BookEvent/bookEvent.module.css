@@ -1,0 +1,570 @@
+/* BookEventScreen.module.css */
+.container {
+    margin: 0 auto;
+    padding: 16px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    height: 120vh;
+}
+
+.eventCard {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.eventTitle {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 12px 0;
+    color: red;
+}
+
+.eventInfo {
+    margin-bottom: 16px;
+}
+
+.eventDate,
+.eventLocation,
+.eventHost,
+.eventPrice {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.eventPrice {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.eventDescription {
+    margin-top: 16px;
+    border-top: 1px solid #eee;
+    padding-top: 16px;
+}
+
+.eventDescription h3 {
+    font-size: 16px;
+    margin: 0 0 8px 0;
+}
+
+.eventDescription p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.taxes {
+    font-size: 12px;
+    text-align: right;
+}
+
+.bookingForm {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.bookingForm h3 {
+    font-size: 16px;
+    margin: 0 0 16px 0;
+    text-align: center;
+}
+
+.formGroup {
+    margin-bottom: 16px;
+}
+
+.formGroup label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.formGroup input,
+.formGroup select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.totalPrice {
+    color: red;
+    text-align: right;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 16px 0;
+}
+
+.paymentButton {
+    width: 100%;
+    background-color: #ffffff;
+    color: rgb(255, 0, 0);
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid #ff0000;
+    transition: background-color 0.2s;
+}
+
+/* Ensure form inputs don't overflow on small screens */
+@media (max-width: 320px) {
+    .container {
+        padding: 8px;
+    }
+
+    .eventCard,
+    .bookingForm {
+        padding: 12px;
+    }
+}
+
+/* EventDetailsPage.module.css */
+/* Mobile first design starting at 320px width */
+
+/* Main container */
+.container {
+    position: relative;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+/* Top navigation */
+.topNav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    z-index: 10;
+}
+
+.backButton,
+.shareButton {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Banner Image */
+.bannerImage {
+    width: 100%;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Placeholder for when actual image is not available */
+.bannerPlaceholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #e0e0e0;
+    color: #757575;
+    font-size: 16px;
+}
+
+/* Event content */
+.eventContent {
+    padding: 20px 16px;
+}
+
+.eventTitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ff0000;
+    margin: 0 0 16px 0;
+    line-height: 1.3;
+}
+
+.eventShortDescription {
+    font-size: 16px;
+    color: #555;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+/* Info cards grid */
+.eventInfoCards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.infoCard {
+    display: flex;
+    align-items: flex-start;
+    background-color: #f8f9fa;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.infoIcon {
+    color: #EE4B2B;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.infoLabel {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+}
+
+.infoValue {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin: 4px 0 0 0;
+}
+
+/* Content sections */
+.section {
+    margin-bottom: 24px;
+}
+
+.sectionTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 12px 0;
+}
+
+.eventDescription {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+/* Gallery button */
+.galleryButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #EE4B2B;
+    color: #EE4B2B;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: background-color 0.2s;
+}
+
+.galleryButton:hover {
+    background-color: rgba(25, 118, 210, 0.05);
+}
+
+.buttonIcon {
+    margin-right: 8px;
+}
+
+/* Admin section */
+.adminSection {
+    margin-bottom: 80px;
+}
+
+.guestsCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.guestsInfo {
+    display: flex;
+    align-items: center;
+}
+
+.guestsIcon {
+    color: #ff0000;
+    margin-right: 12px;
+    font-size: 24px;
+}
+
+.guestsLabel {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+}
+
+.guestsCount {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 4px 0 0 0;
+}
+
+.guestListButton {
+    background-color: #ff0e0e;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Book Now button */
+.bookNowButton {
+    position: fixed;
+    bottom: 20px;
+    left: 16px;
+    right: 16px;
+    background-color: #EE4B2B;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(25, 118, 210, 0.3);
+    z-index: 50;
+}
+
+/* Guest List Popup */
+.guestListOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.guestListPopup {
+    width: 90%;
+    max-height: 80vh;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.guestListHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.guestListHeader h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+}
+
+.guestListContent {
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.guestTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.guestTable th,
+.guestTable td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.guestTable th {
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+}
+
+.guestTable td {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Add these styles to your EventListingPage.module.css file */
+
+/* Live Badge in the corner of the image */
+.liveBadge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    animation: pulse 2s infinite;
+    z-index: 1;
+}
+
+/* Live pulsing indicator dot */
+.liveIndicator {
+    width: 8px;
+    height: 8px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+/* Live tag next to event title */
+.liveTag {
+    margin-left: 10px;
+    color: #ff0000;
+    font-size: 14px;
+    font-weight: normal;
+    animation: pulse 2s infinite;
+}
+
+/* Join live event button */
+.liveButton {
+    background: linear-gradient(45deg, #ff3366, #ff0000);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+    width: 100%;
+}
+
+.liveButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 0, 0, 0.4);
+    background: linear-gradient(45deg, #ff0066, #ff3333);
+}
+
+/* Animation for live indicators */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Make sure the event image has position relative for absolute positioning */
+.eventImage {
+    position: relative;
+    /* Keep your existing styles */
+}
+
+/* Responsive styles for larger screens */
+@media screen and (min-width: 375px) {
+    .eventTitle {
+        font-size: 24px;
+    }
+
+    .bannerImage {
+        height: 240px;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .eventContent {
+        padding: 24px 20px;
+    }
+
+    .bannerImage {
+        height: 280px;
+    }
+
+    .eventInfoCards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bookNowButton {
+        left: 20px;
+        right: 20px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .bannerImage {
+        height: 320px;
+    }
+
+    .eventContent {
+        padding: 30px 24px;
+    }
+
+    .eventTitle {
+        font-size: 28px;
+    }
+
+    .eventInfoCards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .bookNowButton {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: 320px;
+    }
+
+    .guestListPopup {
+        width: 600px;
+    }
+}
