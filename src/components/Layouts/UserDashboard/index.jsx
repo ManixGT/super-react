@@ -32,7 +32,7 @@ const shortcutButtons = [
     {
         title: "Donate",
         icon: <Favorite />,
-        path: "/donate",
+        path: "/donations",
         color: "#8e24aa"
     },
     {

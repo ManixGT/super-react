@@ -4,6 +4,12 @@ import AuthLayout from './layouts/AuthLayout';
 import AppLayout from './layouts/AppLayout';
 import logo from '/assets/kv-logo.png';
 import EventMemberList from './components/Layouts/EventMemberList';
+import BookEventScreen from './components/Layouts/BookEvent';
+import PaymentScreen from './components/Layouts/PaymentScreen';
+import DonationScreen from './components/Layouts/UserDashboard/childrens/Donations/DonationScreen';
+import BookingConfirmation from './components/Layouts/BookingPaymentStatus/SuccessFull/BookingSuccessfull';
+import BookingFailed from './components/Layouts/BookingPaymentStatus/Unsuccessfull/BookingUnsuccessfull';
+import DonationDetails from './components/Layouts/UserDashboard/childrens/Donations/DonationDetails';
 
 // Lazy loaded components
 const SignInPage = lazy(() => import('./components/Layouts/SignIn'));
@@ -51,6 +57,12 @@ function App() {
             <Route path="/event-details" element={<EventDetailsPage />} />
             <Route path="/event-listing" element={<EventListingPage />} />
             <Route path="/eventMember-list" element={<EventMemberList />} />
+            <Route path='/book-event' element={<BookEventScreen />} />
+            <Route path='/payment' element={<PaymentScreen />} />
+            <Route path='/donations' element={<DonationScreen />} />
+            <Route path='booking-confirm' element={<BookingConfirmation />} />
+            <Route path='/booking-failed' element={<BookingFailed />} />
+            <Route path='/donation-details' element={<DonationDetails />} />
           </Route>
         </Routes>
       </Suspense>

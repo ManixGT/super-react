@@ -1,0 +1,306 @@
+/* DonationDetails.module.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9fafb;
+    min-height: 100vh;
+    padding: 1rem;
+
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+}
+
+.stepContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Amount Selection */
+.amountGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.amountButton {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.amountButton:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.amountButton.selected {
+    background-color: #ebf5ff;
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.customAmountWrapper {
+    position: relative;
+    grid-column: span 2;
+}
+
+.currencySymbol {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.customAmountInput {
+    width: 100%;
+    padding: 0.75rem;
+    padding-left: 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.customAmountInput:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Form Styles */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.input,
+.textarea {
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Checkbox Styles */
+.anonymousOption {
+    margin-bottom: 0.5rem;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.875rem;
+    color: #4b5563;
+    position: relative;
+    padding-left: 28px;
+}
+
+.checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+}
+
+.checkboxLabel:hover .checkbox~.checkmark {
+    border-color: #3b82f6;
+}
+
+.checkbox:checked~.checkmark {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox:checked~.checkmark:after {
+    display: block;
+}
+
+.checkboxLabel .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Button Styles */
+.buttonGroup {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.nextButton,
+.confirmButton,
+.backButton {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border: none;
+}
+
+.nextButton {
+    background-color: #3b82f6;
+    color: white;
+    flex: 1;
+}
+
+.nextButton:hover {
+    background-color: #2563eb;
+}
+
+.nextButton:disabled {
+    background-color: #93c5fd;
+    cursor: not-allowed;
+}
+
+.backButton {
+    background-color: white;
+    color: #4b5563;
+    border: 1px solid #d1d5db;
+    flex: 1;
+}
+
+.backButton:hover {
+    background-color: #f9fafb;
+    color: #1f2937;
+}
+
+.confirmButton {
+    background-color: #10b981;
+    color: white;
+    flex: 1;
+}
+
+.confirmButton:hover {
+    background-color: #059669;
+}
+
+/* Summary Card */
+.summaryCard {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.summaryRow:last-child {
+    border-bottom: none;
+}
+
+.summaryLabel {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.summaryValue {
+    font-weight: 500;
+    color: #1f2937;
+    font-size: 0.875rem;
+    text-align: right;
+    word-break: break-word;
+    max-width: 60%;
+}
+
+/* Media query for very small screens */
+@media (max-width: 320px) {
+    .container {
+        padding: 0.75rem;
+    }
+
+    .amountGrid {
+        gap: 0.5rem;
+    }
+
+    .amountButton {
+        padding: 0.625rem;
+        font-size: 0.875rem;
+    }
+
+    .buttonGroup {
+        flex-direction: column;
+    }
+
+    .summaryValue {
+        max-width: 50%;
+    }
+}
